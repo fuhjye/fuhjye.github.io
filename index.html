@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <input id="calcA" type="number" value="9" />
+    <select id="calcMode">
+      <option selected value="Add">+ Add</option>
+      <option value="Minus">- Minus</option>
+      <option value="Times">* Times</option>
+      <option value="Divides">/ Divides</option>
+    </select>
+    <input id="calcB" type="number" value="9" />
+    <button onclick="startCalc();">= Calculate</button>
+    <div class="image-box" style="white-space: nowrap">
+      <img width="100" style="text-align: left; display: inline" src="甲.png" />
+      <output
+        style="display: inline; white-space: nowrap; margin-left: 10px"
+        id="calcOutput"
+        >甲說</output
+      >
+    </div>
+    <script>
+      const inputA = document.getElementById("calcA");
+      const inputB = document.getElementById("calcB");
+      const inputMode = document.getElementById("calcMode");
+      const output = document.getElementById("calcOutput");
+
+      const outputCalc = (number) => {
+        output.value = `甲說 \'${number}\'`;
+      };
+
+      const addCalc = () => {
+        outputCalc(parseFloat(inputA.value) + parseFloat(inputB.value));
+      };
+
+      const minusCalc = () => {
+        outputCalc(parseFloat(inputA.value) - parseFloat(inputB.value));
+      };
+
+      const timesCalc = () => {
+        outputCalc(parseFloat(inputA.value) * parseFloat(inputB.value));
+      };
+
+      const dividesCalc = () => {
+        outputCalc(parseFloat(inputA.value) / parseFloat(inputB.value));
+      };
+
+      const startCalc = () => {
+        let mode = inputMode.value;
+        switch (mode) {
+          case "Add":
+            addCalc();
+            break;
+          case "Minus":
+            minusCalc();
+            break;
+          case "Times":
+            timesCalc();
+            break;
+          case "Divides":
+            dividesCalc();
+            break;
+        }
+      };
+    </script>
+  </body>
+</html>
